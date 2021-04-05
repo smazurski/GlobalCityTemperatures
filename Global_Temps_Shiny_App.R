@@ -27,9 +27,7 @@ library(leaflet)
 
 
 #choices <- print(avg_global_temps_city$City)
-
-
-temps_min_max_avg <- read_csv("C:/USers/steve/Documents/Global_Temps/city_temps.csv")
+temps_min_max_avg <- read_csv("https://raw.githubusercontent.com/smazurski/GlobalCityTemperatures/main/city_temps.csv")
 
 temps_min_max_avg_map <- temps_min_max_avg %>%
   group_by(City) %>%
@@ -41,6 +39,18 @@ temps_min_max_avg_map <- temps_min_max_avg_map %>%
 
 temp_choices <- print(temps_min_max_avg$City)
 
+
+hline <- function(y = 0, color = "rgb(0,100,80)") {
+  list(
+    type = "line", 
+    x0 = 0, 
+    x1 = 1, 
+    xref = "paper",
+    y0 = y, 
+    y1 = y, 
+    line = list(color = color, dash = 'dot')
+  )
+}
 
 
 # Define UI for application that draws a histogram
